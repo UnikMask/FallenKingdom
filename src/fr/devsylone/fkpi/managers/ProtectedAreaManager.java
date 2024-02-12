@@ -22,7 +22,7 @@ public class ProtectedAreaManager implements Saveable {
      * @param pointB {@link Location} of 2nd area edge.
      */
     public void addArea(String name, Location pointA, Location pointB) {
-        areas.put("name", new AABBArea(pointA, pointB));
+        areas.put(name, new AABBArea(pointA, pointB));
     }
 
     /**

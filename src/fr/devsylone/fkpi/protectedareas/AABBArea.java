@@ -35,11 +35,14 @@ public class AABBArea implements ProtectedArea {
     }
 
     public AABBArea(Location pointA, Location pointB) {
-        low = new Vector(Math.max(pointA.getX(), pointB.getX()),
+        high = new Vector(Math.max(pointA.getX(), pointB.getX()),
                 Math.max(pointA.getY(), pointB.getY()), Math.max(pointA.getZ(), pointB.getZ()));
+        low = new Vector(Math.min(pointA.getX(), pointB.getX()),
+                Math.min(pointA.getY(), pointB.getY()), Math.min(pointA.getZ(), pointB.getZ()));
     }
 
-    public AABBArea(Vector low, Vector high) {
-
+    private AABBArea(Vector low, Vector high) {
+        this.low = low;
+        this.high = high;
     }
 }

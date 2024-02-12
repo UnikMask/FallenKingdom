@@ -24,6 +24,7 @@ import org.bstats.charts.SingleLineChart;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.command.PluginCommand;
+import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -54,6 +55,7 @@ import fr.devsylone.fallenkingdom.version.Version;
 import fr.devsylone.fkpi.FkPI;
 import fr.devsylone.fkpi.lockedchests.LockedChest;
 import fr.devsylone.fkpi.lockedchests.LockedChest.ChestState;
+import fr.devsylone.fkpi.protectedareas.AABBArea;
 import fr.devsylone.fkpi.rules.Rule;
 import fr.devsylone.fkpi.teams.Team;
 import lombok.Getter;
@@ -90,6 +92,10 @@ public class Fk extends JavaPlugin
 	private String pluginError = "";
 
 	private String previousVersion = getDescription().getVersion();
+
+    static {
+        ConfigurationSerialization.registerClass(AABBArea.class, "AABBArea");
+    }
 
 	public Fk()
 	{
